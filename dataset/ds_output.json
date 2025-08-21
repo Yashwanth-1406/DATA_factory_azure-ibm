@@ -1,6 +1,7 @@
 {
 	"name": "ds_output",
 	"properties": {
+		"description": "out put",
 		"linkedServiceName": {
 			"referenceName": "yashuazuredatalake_gen2",
 			"type": "LinkedServiceReference"
