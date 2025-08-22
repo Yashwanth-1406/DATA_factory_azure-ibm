@@ -1,0 +1,84 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "instance-yashu"
+		},
+		"GoogleCloudStorage1_secretAccessKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'secretAccessKey' of 'GoogleCloudStorage1'"
+		},
+		"LS_AWS_S3_secretAccessKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'secretAccessKey' of 'LS_AWS_S3'"
+		},
+		"yashuazuredatalake_gen2_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'yashuazuredatalake_gen2'"
+		},
+		"GoogleCloudStorage1_properties_typeProperties_accessKeyId": {
+			"type": "string",
+			"defaultValue": "114473041154610170333"
+		},
+		"LS_AWS_S3_properties_typeProperties_accessKeyId": {
+			"type": "string",
+			"defaultValue": "AKIATHJS2RKPOSOZIGQV"
+		},
+		"yashuazuredatalake_gen2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://yashustorageaccount.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "instance-yashu_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"GoogleCloudStorage1_secretAccessKey": {
+						"value": "[parameters('GoogleCloudStorage1_secretAccessKey')]"
+					},
+					"LS_AWS_S3_secretAccessKey": {
+						"value": "[parameters('LS_AWS_S3_secretAccessKey')]"
+					},
+					"yashuazuredatalake_gen2_accountKey": {
+						"value": "[parameters('yashuazuredatalake_gen2_accountKey')]"
+					},
+					"GoogleCloudStorage1_properties_typeProperties_accessKeyId": {
+						"value": "[parameters('GoogleCloudStorage1_properties_typeProperties_accessKeyId')]"
+					},
+					"LS_AWS_S3_properties_typeProperties_accessKeyId": {
+						"value": "[parameters('LS_AWS_S3_properties_typeProperties_accessKeyId')]"
+					},
+					"yashuazuredatalake_gen2_properties_typeProperties_url": {
+						"value": "[parameters('yashuazuredatalake_gen2_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
