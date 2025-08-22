@@ -1,0 +1,47 @@
+{
+	"name": "DS_AWS_S3",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_AWS_S3",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "S3-SA"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AmazonS3Location",
+				"bucketName": "myawsyashuu",
+				"fileName": "data.csv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Day",
+				"type": "String"
+			},
+			{
+				"name": "Weather",
+				"type": "String"
+			},
+			{
+				"name": "Temperature",
+				"type": "String"
+			},
+			{
+				"name": "Wind",
+				"type": "String"
+			},
+			{
+				"name": "Humidity",
+				"type": "String"
+			}
+		]
+	}
+}
