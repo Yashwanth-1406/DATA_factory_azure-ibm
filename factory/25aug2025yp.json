@@ -1,0 +1,9 @@
+{
+	"name": "25aug2025yp",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "2f1c7b81-9432-4f0a-89ee-c8debb5d8ee4",
+		"tenantId": "38d6d9fb-c85b-479a-a64a-3657ea5facb3"
+	}
+}
